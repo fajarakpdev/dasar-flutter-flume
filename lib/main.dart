@@ -1,4 +1,5 @@
 import 'package:dasar_flutter/column.dart';
+import 'package:dasar_flutter/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Column01(),
+      home: const Home(),
     );
   }
 }
