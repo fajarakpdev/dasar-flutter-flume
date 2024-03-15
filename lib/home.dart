@@ -1,3 +1,5 @@
+import 'package:dasar_flutter/widgets/appbar.dart';
+import 'package:dasar_flutter/widgets/bottomnavigationbar.dart';
 import 'package:dasar_flutter/widgets/paddingmargin01.dart';
 import 'package:dasar_flutter/widgets/row.dart';
 import 'package:dasar_flutter/widgets/scrollview.dart';
@@ -13,6 +15,20 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Text('AppBar'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {},
+          ),
+        ],
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.menu),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(5),
@@ -122,12 +138,29 @@ class Home extends StatelessWidget {
                     width: 120,
                     height: 120,
                     color: Colors.yellow,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AppBar01()));
+                        },
+                        child: const Text('AppBar')),
                   ),
                   Container(
                     margin: const EdgeInsets.all(5),
                     width: 120,
                     height: 120,
                     color: Colors.red,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const Bottomnavigationbar01()));
+                        },
+                        child: const Text('Bottomnavigationbar')),
                   ),
                   Container(
                     margin: const EdgeInsets.all(5),
@@ -302,6 +335,11 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar:
+          BottomNavigationBar(backgroundColor: Colors.blue, items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+        BottomNavigationBarItem(icon: Icon(Icons.people), label: 'user')
+      ]),
     );
   }
 }
